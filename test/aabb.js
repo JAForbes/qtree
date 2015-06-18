@@ -93,7 +93,7 @@ describe("AABB", function () {
 			)
 		})
 
-		it("should have a stateful comtains function", function(){
+		it("should have a stateful contains function", function(){
 			var a = AABB.create(randomAABB())
 
 			var normalized = a.bounds
