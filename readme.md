@@ -1,11 +1,30 @@
 QTree
 =====
 
-Usage:
-------
+Quick Start:
+-----------
+
+```
+#install qtree from github
+npm install JAForbes/qtree
+```
+
+```js
+var QTree = require("qtree")
+
+var top, right, bottom, left ;
+var bounds = [top = 0, right = 10, bottom = 10, left = 10]
+
+var qtree = QTree.create(bounds)
+
+qtree.add( {x:0, y:0 })
+
+qtree.query(bounds) //=> [{x:0, y:0}]
+```
 
 API
 ---
+
 
 ### #create
 
