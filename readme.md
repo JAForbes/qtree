@@ -19,10 +19,13 @@ var top, right, bottom, left ;
 var bounds = [top = 0, right = 10, bottom = 10, left = 0]
 
 var qtree = QTree.create(bounds)
+var point = { x:0, y:0 }
 
-qtree.add( {x:0, y:0 })
+qtree.add(point)
 
-var results = qtree.query(bounds) //=> [{x:0, y:0}]
+qtree.points.length //=> 1
+
+qtree.query(bounds) //=> [{x:0, y:0}]
 
 qtree.remove( results[0] )
 
@@ -34,8 +37,8 @@ Static Usage:
 ```js
 var QTree = require("qtree")
 
-var top, right, bottom, left ;
-var bounds = [top = 0, right = 10, bottom = 10, left = 10]
+var top, right, bottom, left;
+var bounds = [top = 0, right = 10, bottom = 10, left = 0]
 
 var qtree = QTree.qtree(bounds)
 
@@ -43,11 +46,11 @@ var points = { point_1: {x:0, y:0 } }
 
 QTree.add(qtree, points, "point_1")
 
-qtree.query(bounds) //=> ["point_1"]
+QTree.query(qtree, points, bounds) //=> ["point_1"]
 
 QTree.remove(qtree, points, "point_1")
 
-qtree.query(bounds) //=> []
+QTree.query(qtree, points, bounds).length //=> 0
 ```
 
 API
