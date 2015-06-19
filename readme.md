@@ -55,8 +55,8 @@ QTree.remove(qtree, points, "point_1")
 QTree.query(qtree, points, bounds).length //=> 0
 ```
 
-Advantages over other libraries:
---------------------------------
+Differences from other QuadTree libraries:
+------------------------------------------
 
 There are a lot of Javascript QuadTrees out there.
 Here is a short list of why I wrote this library, and why it might be helpful to you.
