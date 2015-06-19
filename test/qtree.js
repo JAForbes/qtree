@@ -2,8 +2,13 @@ var QTree = require("../qtree")
 var AABB = require("../aabb")
 var assert = require("assert")
 var _ = require("lodash-fp")
+
 var havePoints = function(qtree){
 	return qtree.points.length
+}
+
+var pointI = function(i){
+	return { x: i, y: i}
 }
 
 describe("QTree", function () {
@@ -59,6 +64,7 @@ describe("QTree", function () {
 				QTree.add( qtree, points, "a"), false
 			)
 		})
+		it("subdivide should work even when the edges lie on the axis (value of 0) ")
 	})
 	describe("remove", function(){
 		it("should remove the point from the qtree", function(){
@@ -87,9 +93,7 @@ describe("QTree", function () {
 		it("should return a list of points within a bounding box", function(){
 			var qtree = QTree.qtree([0,10,10,0])
 
-			var points = _.times(function(i){
-				return {x: i, y: i }
-			},10)
+			var points = _.times(pointI,10)
 			points.forEach(function(point, i){
 
 				QTree.add(qtree, points, i)
@@ -102,10 +106,66 @@ describe("QTree", function () {
 		})
 	})
 	describe("create", function(){
-		it("should create a qtree instance with an internal points hash")
-		it("instance should have a working query function")
-		it("instance should have a working add function")
-		it("instance should have a working remove function")
-		it("instance should have a reset function that clears the tree")
+		it("should create a qtree instance with an internal _points hash",function(){
+			var qtree = QTree.create()
+			assert(qtree._points !== undefined)
+		})
+		it("instance should have a working add function", function(){
+			var qtree = QTree.create([0,10,10,0])
+			_.times(pointI, 10)
+				.forEach(qtree.add)
+
+			assert.equal(qtree.points.length, 4)
+			assert.equal(
+				qtree.children[QTree.NE].points.length, 2
+			)
+			assert.equal(
+				qtree.children[QTree.SE].points.length, 4
+			)
+
+		})
+		it("instance should have a working query function", function(){
+			var qtree = QTree.create([0,10,10,0])
+
+			_.times(pointI, 10)
+				.forEach(qtree.add)
+
+			var results = qtree.query([1,5,5,1])
+
+			assert.equal(
+				results.length, 5
+			)
+		})
+
+		it("instance should have a working remove function", function(){
+			var qtree = QTree.create([0,10,10,0])
+
+			_.times(pointI, 10)
+				.forEach(qtree.add)
+
+
+			assert.equal(qtree.children[QTree.SE].points.length, 4)
+			qtree.remove( qtree._points["point_10"] )
+			assert.equal(qtree.children[QTree.SE].points.length, 3)
+
+		})
+		it("instance should have a reset function that clears the tree", function(){
+			var qtree = QTree.create([0,10,10,0])
+
+			_.times(pointI, 10)
+				.forEach(qtree.add)
+
+		    //first level full
+			assert.equal(qtree.points.length,4)
+			assert(Object.keys(qtree._points).length,10)
+			assert.equal(qtree.children.length,4)
+
+			qtree.reset()
+
+			assert.equal(qtree.points.length,0)
+			assert.equal(Object.keys(qtree._points).length,0)
+			assert.equal(qtree.children.length,0)
+
+		})
 	})
 })

@@ -104,6 +104,34 @@ var QTree = {
 		},[])
 
 		return results.concat(child_results)
+	},
+
+	create: function(bounds){
+		var qtree = QTree.qtree(bounds)
+		qtree._points = {}
+		qtree._sequence_id = 1
+
+		qtree.add = function(point){
+			var id = "point_"+ ++qtree._sequence_id
+			point._id = id
+			qtree._points[id] = point
+			return QTree.add(qtree, qtree._points, id)
+		}
+		qtree.remove = function(point){
+			return QTree.remove(qtree, qtree._points, point._id)
+		}
+		qtree.query = function(bounds){
+			return QTree.query(qtree, qtree._points, bounds)
+		}
+		qtree.reset = function(bounds){
+			qtree.bounds = bounds ? QTree.normalize(bounds) : qtree.bounds
+			qtree.children = []
+			qtree.points = []
+			qtree._points = {}
+			qtree._sequence_id = 1
+			return qtree
+		}
+		return qtree
 	}
 }
 module.exports = QTree
