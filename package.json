@@ -5,7 +5,8 @@
   "main": "qtree.js",
   "scripts": {
     "test": "mocha",
-    "build": "babel --optional runtime lib -d ."
+    "build": "babel --optional runtime lib -d .",
+    "watch": "watch \"npm run build && npm test\" lib"
   },
   "author": "james.a.forbes@gmail.com <=> (http://james-forbes.com)",
   "license": "ISC",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "babel": "^5.5.8",
     "lodash-fp": "^0.9.4",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "watch": "^0.16.0"
   }
 }
