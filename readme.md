@@ -109,6 +109,8 @@ Everything is in `package.json`
 
 ####Semantic Versioning
 
+This library will follow semantic versioning.  So you know if/when you should update it.
+And you can tell if it/when it is more mature.
 
 API
 ---
@@ -337,3 +339,12 @@ npm install
 #run the test suite whenver you edit ./lib
 npm run watch
 ```
+
+Roadmap
+-------
+
+- Browser usage without browserify.
+- Publishing on npm
+- Browser demos
+- Docs on gh-pages
+- compress() function, that will shrink a qtree down after removing several points
