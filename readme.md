@@ -61,52 +61,53 @@ Advantages over other libraries:
 There are a lot of Javascript QuadTrees out there.
 Here is a short list of why I wrote this library, and why it might be helpful to you.
 
-- Static API allows you to store points elsewhere in your application.
+####Static API allows you to store points elsewhere in your application.
 
-	This is very useful if you have already built a working app
-	and you do not want to change your data structure because some
-	quadtree implementation library tells you to.
+This is very useful if you have already built a working app
+and you do not want to change your data structure because some
+quadtree implementation library tells you to.
 
-- Static API only stores keys/indexes.  So it is trivial to serialise.
+####Static API only stores keys/indexes.  So it is trivial to serialise.
 
-	```js
-	var json = JSON.stringify(qtree)
-	var qtree = JSON.parse(qtree)
-	```
-- Tests, tests, and more tests.
+```js
+var json = JSON.stringify(qtree)
+var qtree = JSON.parse(qtree)
+```
 
-	You can run verify this library does what it claims to do by just running `mocha` in your terminal.
+####Tests, tests, and more tests.
 
-- No dependencies (other than babel-runtime)
+Verify this library does what it claims to do by just running `mocha` in your terminal.
 
-	The source (in `/lib` ) is dependency free in an ES6 environment.
+###No dependencies (other than babel-runtime)
 
-- ES6 Iterators!
+The source (in `/lib` ) is dependency free in an ES6 environment.
 
-	You can iterate over the entire tree with a simple for loop thanks to ES6 Iterators
+####ES6 Iterators!
 
-	```js
-	for( var subtree of qtree) {
-		//do stuff
-	}
-	```
+You can iterate over the entire tree with a simple for loop thanks to ES6 Iterators
 
-- Open Architecture.  (Because, you know what you are doing.)
+```js
+for( var subtree of qtree) {
+	//do stuff
+}
+```
 
-	There are no closure vars used in this library.  Everything is public.
-	Internal properties are prefixed with an `_` to indicate you probably shouldn't touch them.
-	But you can if you _need_ to, _without_ a pull request.
+####Open Architecture.  (Because, you know what you are doing.)
+
+There are no closure vars used in this library.  Everything is public.
+Internal properties are prefixed with an `_` to indicate you probably shouldn't touch them.
+But you can if you _need_ to, _without_ a pull request.
 
 
-- Documentation
+####Documentation
 
-	Actual documentation.  That documents things.
+Actual documentation.  That documents things.
 
-- No weird, horrible, unnecessary build tools like grunt, and gulp, and burp and slurp.
+####No weird, horrible, unnecessary build tools like grunt, and gulp, and burp and slurp.
 
-	Everything is in `package.json`
+Everything is in `package.json`
 
-- Semantic Versioning
+####Semantic Versioning
 
 
 API
