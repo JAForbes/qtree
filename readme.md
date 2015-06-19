@@ -96,7 +96,7 @@ for( var subtree of qtree) {
 
 There are no closure vars used in this library.  Everything is public.
 Internal properties are prefixed with an `_` to indicate you probably shouldn't touch them.
-But you can if you _need_ to, _without_ a pull request.
+But if you _need_ to, you can!
 
 
 ####Documentation
