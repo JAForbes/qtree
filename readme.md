@@ -261,6 +261,10 @@ The source is written in ES6 using [Babel](http://babeljs.io/)
 
 To compile to ES5 run `npm run build`
 
+To compile to ES5 automatically, and then run the tests.  run `npm run watch`
+
+To run the tests.  `npm test`
+
 Pull requests welcome.
 
 To run the tests
@@ -268,8 +272,8 @@ To run the tests
 
 ```
 #install dependencies
-npm install --dev
+npm install
 
-#run the test suite
-npm run test
+#run the test suite whenver you edit ./lib
+npm run watch
 ```
