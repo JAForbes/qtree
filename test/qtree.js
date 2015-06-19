@@ -182,4 +182,46 @@ describe("QTree", function () {
 
 		})
 	})
+	it("Object Oriented API", function(){
+		var top, right, bottom, left ;
+		var bounds = [top = 0, right = 10, bottom = 10, left = 0]
+
+		var qtree = QTree.create(bounds)
+		var point = { x:0, y:0 }
+
+		qtree.add(point)
+
+		assert.equal(qtree.points.length, 1)
+
+		var results = qtree.query(bounds) //=> [{x:0, y:0}]
+
+
+		assert.equal(results.length,1)
+		assert(results[0] == point)
+
+		qtree.remove( results[0] )
+
+		var results = qtree.query(bounds) //=> []
+
+		assert.equal(results.length, 0)
+	})
+
+	it("Static API", function(){
+		var top, right, bottom, left;
+		var bounds = [top = 0, right = 10, bottom = 10, left = 0]
+
+		var qtree = QTree.qtree(bounds)
+
+		var points = { point_1: {x:0, y:0 } }
+
+		QTree.add(qtree, points, "point_1")
+
+		assert.equal(QTree.query(qtree, points, bounds)[0], "point_1")
+
+		QTree.remove(qtree, points, "point_1")
+
+		assert.equal(
+			QTree.query(qtree, points, bounds).length, 0
+		)
+	})
 })
