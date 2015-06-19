@@ -327,7 +327,7 @@ To compile to ES5 automatically, and then run the tests.  run `npm run watch`
 
 To run the tests.  `npm test`
 
-Pull requests welcome.
+Suggestions and pull requests welcome.
 
 To run the tests
 ----------------
