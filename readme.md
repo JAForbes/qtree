@@ -9,6 +9,9 @@ Quick Start:
 npm install JAForbes/qtree
 ```
 
+
+Object Oriented Usage:
+
 ```js
 var QTree = require("qtree")
 
@@ -19,7 +22,32 @@ var qtree = QTree.create(bounds)
 
 qtree.add( {x:0, y:0 })
 
-qtree.query(bounds) //=> [{x:0, y:0}]
+var results = qtree.query(bounds) //=> [{x:0, y:0}]
+
+qtree.remove( results[0] )
+
+qtree.query(bounds) //=> []
+```
+
+Static Usage:
+
+```js
+var QTree = require("qtree")
+
+var top, right, bottom, left ;
+var bounds = [top = 0, right = 10, bottom = 10, left = 10]
+
+var qtree = QTree.qtree(bounds)
+
+var points = { point_1: {x:0, y:0 } }
+
+QTree.add(qtree, points, "point_1")
+
+qtree.query(bounds) //=> ["point_1"]
+
+QTree.remove(qtree, points, "point_1")
+
+qtree.query(bounds) //=> []
 ```
 
 API
