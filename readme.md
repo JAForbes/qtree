@@ -27,7 +27,7 @@ qtree.points.length //=> 1
 
 qtree.query(bounds) //=> [{x:0, y:0}]
 
-qtree.remove( results[0] )
+qtree.remove( point )
 
 qtree.query(bounds) //=> []
 ```
