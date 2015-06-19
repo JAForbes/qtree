@@ -348,3 +348,4 @@ Roadmap
 - Browser demos
 - Docs on gh-pages
 - compress() function, that will shrink a qtree down after removing several points
+- entry point requires es5/es6 version dependening on users runtime.
