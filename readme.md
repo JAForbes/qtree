@@ -146,7 +146,7 @@ Useful when using the Static API.  And used internally by the Object Oriented AP
 
 A `qtree` object has the following properties.
 
-- `qtree.children`: An array of `qtree` objects that represent the subdividies boundary of the parent qtree.
+- `qtree.children`: An array of `qtree` objects that represent the subdividied boundary of the parent qtree.
 - `qtree.points` : An array of point indexes found within the top level of this qtree.
 - `qtree.bounds` : An array representing an Axis Aligned Bounding Box.
 
@@ -362,3 +362,8 @@ Roadmap
 - Docs on gh-pages
 - compress() function, that will shrink a qtree down after removing several points
 - entry point requires es5/es6 version dependening on users runtime.
+- Support for different point data structures like `[x,y]`, `{x:0, y:0}`
+- Optional Support for any type of point collection retrieval using a custom get/set function.
+- Support for variable branching factors
+- Leaning more on ES6 features
+- Performance optimizations
