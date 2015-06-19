@@ -3,6 +3,19 @@ QTree
 
 A QuadTree that lets you store your points wherever you want.
 
+Table of Contents
+-----------------
+
+- [Quick Start](#quick-start)
+- [Difference from other quadtree libraries](#differences-from-other-quadtree-libraries)
+- [API Documentation](#api)
+- [Using the Static API](#using-the-static-api)
+- [Using the Object Oriented API](#using-the-object-oriented-api)
+- [Contributing](#contributing)
+- [Tests](#to-run-the-tests)
+- [Roadmap](#roadmap)
+
+
 Quick Start:
 -----------
 
