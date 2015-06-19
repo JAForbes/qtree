@@ -44,16 +44,16 @@ describe("QTree", function () {
 
 			var ne = qtree.children[QTree.NE]
 			assert.equal(
-				ne.bounds[AABB.BOTTOM], qtree.bounds[AABB.BOTTOM] / 2
+				ne.bounds[AABB.BOTTOM], 5
 			)
 			assert.equal(
-				ne.bounds[AABB.TOP],qtree.bounds[AABB.TOP]
+				ne.bounds[AABB.TOP], 0
 			)
 			assert.equal(
-				ne.bounds[AABB.LEFT],qtree.bounds[AABB.LEFT] / 2
+				ne.bounds[AABB.LEFT], 5
 			)
 			assert.equal(
-				ne.bounds[AABB.RIGHT],qtree.bounds[AABB.RIGHT]
+				ne.bounds[AABB.RIGHT],10
 			)
 
 		})
@@ -64,7 +64,21 @@ describe("QTree", function () {
 				QTree.add( qtree, points, "a"), false
 			)
 		})
-		it("subdivide should work even when the edges lie on the axis (value of 0) ")
+		it("subdivide should work even when the edges lie on the axis (value of 0) ", function(){
+			var qtree = QTree.qtree([-10,0,0,-10])
+			var points = _.range(-10,0).map( pointI )
+			points.forEach(function(point, i){
+				QTree.add(qtree, points, i)
+			})
+
+			var c = qtree.children
+
+			assert.equal( c[QTree.NE].bounds.join(","), "-10,0,-5,-5" )
+			assert.equal( c[QTree.SE].bounds.join(","), "-5,0,0,-5" )
+			assert.equal( c[QTree.SW].bounds.join(","), "-5,-5,0,-10" )
+			assert.equal( c[QTree.NW].bounds.join(","), "-10,-5,-5,-10" )
+
+		})
 	})
 	describe("remove", function(){
 		it("should remove the point from the qtree", function(){
@@ -117,7 +131,7 @@ describe("QTree", function () {
 
 			assert.equal(qtree.points.length, 4)
 			assert.equal(
-				qtree.children[QTree.NE].points.length, 2
+				qtree.children[QTree.NE].points.length, 1
 			)
 			assert.equal(
 				qtree.children[QTree.SE].points.length, 4

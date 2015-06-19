@@ -29,13 +29,24 @@ var QTree = {
 	},
 
 	_subdivision: function(qtree){
+		var N = qtree.bounds[0]
+		var E = qtree.bounds[1]
+		var S = qtree.bounds[2]
+		var W = qtree.bounds[3]
 
-		return QTree._transformations.map(function(transformation){
-			var bounds = qtree.bounds.map(function(bound, i){
-				return bound * transformation[i]
-			})
-			return QTree.qtree(bounds)
-		})
+		var dx_half = (W - E) / 2
+		var dy_half = (S - N) / 2
+
+		return [
+			//NE
+			QTree.qtree([ N, E, S - dy_half, W - dx_half]),
+			//SE
+			QTree.qtree([N + dy_half, E, S, W - dx_half]),
+			//SW
+			QTree.qtree([N + dy_half, E + dx_half, S, W]),
+			//NW
+			QTree.qtree([N, E + dx_half, S - dy_half, W])
+		]
 	},
 
 	add: function (qtree, points, point_id) {
@@ -109,7 +120,7 @@ var QTree = {
 	create: function(bounds){
 		var qtree = QTree.qtree(bounds)
 		qtree._points = {}
-		qtree._sequence_id = 1
+		qtree._sequence_id = 0
 
 		qtree.add = function(point){
 			var id = "point_"+ ++qtree._sequence_id
