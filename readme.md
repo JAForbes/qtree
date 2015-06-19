@@ -35,6 +35,8 @@ qtree.query(bounds) //=> []
 Static Usage:
 
 ```js
+var QTree = require("qtree")
+
 var top, right, bottom, left;
 var bounds = [top = 0, right = 10, bottom = 10, left = 0]
 
