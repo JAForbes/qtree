@@ -1,6 +1,6 @@
 {
   "name": "qtree",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A QuadTree: that lets you store your points somewhere else.",
   "main": "qtree.js",
   "scripts": {
