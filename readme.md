@@ -31,7 +31,7 @@ API
 A factory function that creates a `qtree` object that includes several Object Oriented functions
 and internal points storage.
 
-```
+```js
 var bounds = [0,10,10,0]
 var qtree = QTree.create( bounds )
 ```
@@ -127,7 +127,7 @@ so it is recommended to use the index properties below to reference individual q
 
 Example:
 
-```
+```js
 var north_east = qtree.children[QTree.NE]
 ```
 
@@ -160,7 +160,7 @@ an array or a hash.  And all operations depend on the key/index of your point.
 
 You add a point with the key/index.  And when you query the tree, you receive indexes of the points that were found.
 
-```
+```js
 var pointCollection = {
 	"point_1" : {x:2, y:3}
 }
@@ -187,7 +187,7 @@ The Object Oriented API can be accessed using the `QTree.create` function.
 The Object Oriented API is calling the static API with a point collection and
 qtree object stored on the instance.
 
-```
+```js
 var boundingBox = [10, 0, 0, 10]
 var qtree = QTree.create(boundingBox)
 
