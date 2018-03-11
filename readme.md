@@ -80,14 +80,14 @@ This is very useful if you have already built a working app
 and you do not want to change your data structure because some
 quadtree implementation library tells you to.
 
-####Static API only stores keys/indexes.  So it is trivial to serialise.
+#### Static API only stores keys/indexes.  So it is trivial to serialise.
 
 ```js
 var json = JSON.stringify(qtree)
 var qtree = JSON.parse(qtree)
 ```
 
-####Tests, tests, and more tests.
+#### Tests, tests, and more tests.
 
 Verify this library does what it claims to do by just running `mocha` in your terminal.
 
@@ -95,7 +95,7 @@ Verify this library does what it claims to do by just running `mocha` in your te
 
 The source (in `/lib` ) is dependency free in an ES6 environment.
 
-####ES6 Iterators!
+#### ES6 Iterators!
 
 You can iterate over the entire tree with a simple for loop thanks to ES6 Iterators
 
@@ -105,14 +105,14 @@ for( var subtree of qtree) {
 }
 ```
 
-####Open Architecture.  (Because, you know what you are doing.)
+#### Open Architecture.  (Because, you know what you are doing.)
 
 There are no closure vars used in this library.  Everything is public.
 Internal properties are prefixed with an `_` to indicate you probably shouldn't touch them.
 But if you _need_ to, you can!
 
 
-####Documentation
+#### Documentation
 
 Actual documentation.  That documents things.
 
@@ -120,7 +120,7 @@ Actual documentation.  That documents things.
 
 Everything is in `package.json`
 
-####Semantic Versioning
+#### Semantic Versioning
 
 This library will follow semantic versioning.  So you know if/when you should update it.
 And you can tell if it/when it is more mature.
