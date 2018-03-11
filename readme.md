@@ -74,7 +74,7 @@ Differences from other QuadTree libraries:
 There are a lot of Javascript QuadTrees out there.
 Here is a short list of why I wrote this library, and why it might be helpful to you.
 
-####Static API allows you to store points elsewhere in your application.
+#### Static API allows you to store points elsewhere in your application.
 
 This is very useful if you have already built a working app
 and you do not want to change your data structure because some
@@ -116,7 +116,7 @@ But if you _need_ to, you can!
 
 Actual documentation.  That documents things.
 
-####No weird, horrible, unnecessary build tools like grunt, and gulp, and burp and slurp.
+#### No weird, horrible, unnecessary build tools like grunt, and gulp, and burp and slurp.
 
 Everything is in `package.json`
 
